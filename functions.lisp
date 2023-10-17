@@ -6,7 +6,7 @@
 (defun make-cd (title artist rating ripped)
   (list :title title :artist artist :rating rating :ripped ripped))
 
-(defun add-cd-to-db (cd)
+(defun add-record (cd)
   (push cd *db*))
 
 (defun show-db()
