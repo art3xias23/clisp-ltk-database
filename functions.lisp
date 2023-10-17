@@ -40,3 +40,7 @@
   (with-open-file (in filename)
     (with-standard-io-syntax
       (setf *db* (read in)))))
+
+(defun select-by-artist (artist) 
+    (remove-if-not
+      #'(lambda (cd) (equal (getf cd :artist) artist)) *db*))
