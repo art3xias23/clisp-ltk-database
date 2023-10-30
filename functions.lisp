@@ -44,3 +44,12 @@
 (defun select-by-artist (artist) 
     (remove-if-not
       #'(lambda (cd) (equal (getf cd :artist) artist)) *db*))
+
+(defun where(&key artist title rating (ripped NIL ripped-p))
+    (lambda(record) 
+        (if title (string-equal title (getf cd :title)) t) 
+        (if artist (string-equal artist (getf cd :artist)) t) 
+        (if rating (string-equal rating (getf cd :rating)) t) 
+        (if ripped-p (string-equal ripped (getf cd :ripped)) t) 
+      *db*))
+
