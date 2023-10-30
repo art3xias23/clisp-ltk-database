@@ -1,5 +1,11 @@
 (defpackage :functions
-  (:use :cl))
+  (:use :cl)
+  (:export :calco))
+
+(in-package :functions)
+
+(defun calco (a b)
+      (+ a b))
 
 (defvar *db* nil)
 
