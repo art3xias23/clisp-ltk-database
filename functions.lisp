@@ -53,9 +53,9 @@
 
 (defun where(&key artist title rating (ripped NIL ripped-p))
     (lambda(record) 
-        (if title (string-equal title (getf cd :title)) t) 
-        (if artist (string-equal artist (getf cd :artist)) t) 
-        (if rating (string-equal rating (getf cd :rating)) t) 
-        (if ripped-p (string-equal ripped (getf cd :ripped)) t) 
+        (if title (string-equal title (getf record :title)) t) 
+        (if artist (string-equal artist (getf record :artist)) t) 
+        (if rating (string-equal rating (getf record :rating)) t) 
+        (if ripped-p (string-equal ripped (getf record :ripped)) t) 
       *db*))
 

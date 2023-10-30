@@ -1,8 +1,5 @@
-(load "functions.lisp")
+(load "functions")
 
-(defpackage :main
-  (:use :cl :functions))
+(in-package :functions)
 
-(in-package :main)
-
-(format  t "~a~%" (functions::calco 1 2))
+(format t "~a~%" (calco 1 2))
