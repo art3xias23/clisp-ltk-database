@@ -52,7 +52,7 @@
       #'(lambda (cd) (equal (getf cd :artist) artist)) *db*))
 
 (defun select (selector-fn)
-  (remove-if-not #'selector-fn *db*))
+  (remove-if-not selector-fn *db*))
 
 (defun where(&key artist title rating (ripped NIL ripped-p))
     (lambda(record) 
@@ -68,7 +68,7 @@
             (lambda (record)
               (when (funcall where-fn record)
                 (if name (setf (getf record :name) name))
-                (if age (setf (getf record :age) age)) record))
+                (if age (setf (getf record :age) age))) record)
            *db*)))
 
-
+(if name (string-equal (getf record :name) name) t)

@@ -23,8 +23,15 @@
             (lambda (record)
               (when (funcall where-fn record)
                 (if name (setf (getf record :name) name))
-                (if age (setf (getf record :age) age)) record))
+                (if age (setf (getf record :age) age)) ) record)
            *db*)))
 
 (print (update (where :name "Koce") :name "Boce"))
+
+(defun rm (selector-fn)
+        (setf *db* (remove-if selector-fn *db*)))
+
+(rm (where :name "Boce"))
+
+(print *db*)
 
