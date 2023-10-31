@@ -55,11 +55,12 @@
   (remove-if-not selector-fn *db*))
 
 (defun where(&key artist title rating (ripped NIL ripped-p))
-    (lambda(record) 
-        (if title (string-equal title (getf record :title)) t) 
-        (if artist (string-equal artist (getf record :artist)) t) 
-        (if rating (string-equal rating (getf record :rating)) t) 
-        (if ripped-p (string-equal ripped (getf record :ripped)) t) 
+    (lambda(record)
+        (and
+          (if title (string-equal title (getf record :title)) t) 
+          (if artist (string-equal artist (getf record :artist)) t) 
+          (if rating (string-equal rating (getf record :rating)) t) 
+          (if ripped-p (string-equal ripped (getf record :ripped)) t)) 
       *db*))
 
 (defun update(where-fn &key name age)
